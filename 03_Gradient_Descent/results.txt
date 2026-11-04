@@ -1,0 +1,19 @@
+Concrete data: 1030 mixes, 8 inputs, strength 2.3-82.6 MPa (mean 35.8)
+Train/test split: 824 / 206
+Largest eigenvalue of X^T X / n = 2.200 -> batch GD is stable for lr < 0.909
+Normal-equation training loss J = 26.1249
+
+Method                              updates  time(s)  train J  test MAE test RMSE  test R2   |w-w*|
+Batch GD (lr=0.1)                       200     0.03   26.997     5.373     6.839   0.8258    7.454
+Mini-batch GD, 32 rows (lr=0.01)       5200     0.08   26.243     5.242     6.696   0.8330    2.742
+Stochastic GD, 1 row (lr=0.001)      164800     3.00   26.128     5.181     6.656   0.8350    0.100
+Normal equation (exact)                   -        -   26.125     5.183     6.658   0.8349    0.000
+
+Learning-rate study (batch GD, 200 epochs):
+   lr = 0.001  -> final J = 525.563
+   lr = 0.01   -> final J = 44.486
+   lr = 0.1    -> final J = 26.997
+   lr = 0.5    -> final J = 26.130
+   lr = 0.955  -> diverged
+
+Contour picture: water/superplasticizer, largest eigenvalue 1.649, 'too big' step = 1.15 (limit 1.213)

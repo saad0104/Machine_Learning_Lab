@@ -1,0 +1,29 @@
+Ionosphere data: 351 returns, 34 features, good = 225, bad = 126
+Train/test split: 245 / 106
+
+All 34 features: CV accuracy 0.8121, fitness 0.7921
+
+GA with tournament selection (population 30, 40 generations):
+   best fitness 0.9049 (generation 0: 0.8556), population mean 0.8821 (generation 0: 0.8156)
+   selected 9 features: [1, 5, 10, 15, 18, 24, 27, 33, 34]
+   CV accuracy of that subset: 0.9102
+
+GA with roulette selection (population 30, 40 generations):
+   best fitness 0.8810 (generation 0: 0.8556), population mean 0.8424 (generation 0: 0.8156)
+   selected 15 features: [1, 2, 4, 5, 8, 9, 11, 12, 13, 14, 15, 16, 21, 25, 32]
+   CV accuracy of that subset: 0.8898
+
+Distinct chromosomes evaluated (cache size): 1801
+
+Repeat with different seeds (tournament selection):
+   seed 1:  8 features, CV acc 0.9183, test acc 0.9340
+   seed 2: 10 features, CV acc 0.9184, test acc 0.8962
+   seed 3: 10 features, CV acc 0.9180, test acc 0.8868
+   seed 4: 10 features, CV acc 0.9144, test acc 0.9340
+   seed 5:  8 features, CV acc 0.9143, test acc 0.9057
+
+Test set (5-NN)              #feat     Acc  MacroP  MacroR MacroF1
+All features                    34  0.8679  0.8874  0.8274  0.8460
+GA-selected features             9  0.9434  0.9437  0.9327  0.9377
+Confusion matrix, all features [[bad->bad, bad->good], [good->bad, good->good]] = [[26, 12], [2, 66]]
+Confusion matrix, GA features = [[34, 4], [2, 66]]

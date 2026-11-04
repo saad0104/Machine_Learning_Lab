@@ -1,0 +1,36 @@
+Wine Quality data: 1599 wines, 4 selected inputs, quality 3-8 (mean 5.64)
+Train/test split: 1280 / 319
+
+Polynomial degree study (all four inputs, standardised):
+degree #weights train RMSE   CV RMSE test RMSE cond(Phi^T Phi)
+     1        5      0.662     0.666     0.642        3.53e+00
+     2       15      0.646     0.661     0.632        7.73e+01
+     3       35      0.633     0.675     0.626        1.25e+04
+     4       70      0.619     0.795     0.690        2.20e+06
+     5      126      0.587     1.310     1.579        5.76e+08
+     6      210      0.561    20.941     2.215        1.98e+11
+Degree with the lowest CV RMSE: 2
+
+Model                         #w  trMAE trRMSE   trR2  teMAE teRMSE   teR2 cvRMSE   (quality points)
+Simple (square feet only)      2  0.565  0.710 0.2406  0.550  0.711 0.1460      -
+Multiple linear (4 inputs)     5  0.522  0.662 0.3397  0.491  0.642 0.3040  0.666
+Polynomial, degree 2          15  0.510  0.646 0.3717  0.484  0.632 0.3250  0.661
+
+Multiple linear model coefficients:
+   intercept                    -2.9635 quality points
+   alcohol                     +0.3307 quality points per unit
+   volatile_acidity            -1.1898 quality points per unit
+   sulphates                   +0.6328 quality points per unit
+   density                     +5.3991 quality points per unit
+
+Degree-2 weights (standardised inputs, quality points), largest first:
+   1                                  +5.721
+   alcohol                            +0.337
+   sulphates                          +0.232
+   volatile_acidity                   -0.175
+   alcohol*sulphates                  +0.077
+   alcohol*alcohol                    -0.047
+   alcohol*density                    -0.039
+   sulphates*sulphates                -0.036
+
+Test residuals: mean -0.090, std 0.626 quality points

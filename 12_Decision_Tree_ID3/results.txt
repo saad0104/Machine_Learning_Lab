@@ -1,0 +1,56 @@
+Car data: 1728 cars, attributes ['buying', 'maint', 'doors', 'persons', 'lug_boot', 'safety']
+Class counts: {'unacc': 1210, 'acc': 384, 'good': 69, 'vgood': 65}
+Train/test split: 1209 / 519
+
+Entropy of the training set H(S) = 1.2036 bits
+Information gain of each attribute at the root:
+   safety    0.2778
+   persons   0.2240
+   buying    0.0951
+   maint     0.0733
+   lug_boot  0.0284
+   doors     0.0025
+
+Full tree: 85 decision nodes, 225 leaves, depth 6
+Top of the tree (two levels):
+   safety = high
+       persons = 2
+           -> unacc  (137 cars)
+       persons = 4
+           -> ... subtree on buying (122 cars)
+       persons = more
+           -> ... subtree on buying (127 cars)
+   safety = low
+       -> unacc  (422 cars)
+   safety = med
+       persons = 2
+           -> unacc  (128 cars)
+       persons = 4
+           -> ... subtree on buying (139 cars)
+       persons = more
+           -> ... subtree on buying (134 cars)
+
+Training accuracy: 1.0000
+Test-set results (full tree)
+  Accuracy        : 0.9229
+  Macro precision : 0.7936
+  Macro recall    : 0.8239
+  Macro F1        : 0.8066
+  Weighted F1     : 0.9251
+  unacc : precision=0.994 recall=0.942 f1=0.967 (support 363)
+  acc   : precision=0.818 recall=0.939 f1=0.874 (support 115)
+  good  : precision=0.625 recall=0.714 f1=0.667 (support 21)
+  vgood : precision=0.737 recall=0.700 f1=0.718 (support 20)
+  Confusion matrix (rows actual, cols predicted, order ['unacc', 'acc', 'good', 'vgood']):
+[[342  20   1   0]
+ [  2 108   2   3]
+ [  0   4  15   2]
+ [  0   0   6  14]]
+
+Depth limit study:
+   max depth 1:   3 leaves, train acc 0.7006, test acc 0.6994
+   max depth 2:   7 leaves, train acc 0.7907, test acc 0.7476
+   max depth 3:  19 leaves, train acc 0.8379, test acc 0.7688
+   max depth 4:  64 leaves, train acc 0.9132, test acc 0.8536
+   max depth 5: 138 leaves, train acc 0.9752, test acc 0.9229
+   max depth 6: 225 leaves, train acc 1.0000, test acc 0.9229

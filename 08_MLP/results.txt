@@ -1,0 +1,18 @@
+Digits: 3822 train / 674 validation / 1124 test images, 64 inputs, 10 classes
+
+Hidden-layer size study (100 epochs, lr = 0.5, batch 32):
+      4 hidden units -> train acc 0.9205, validation acc 0.8976, parameters 310
+      8 hidden units -> train acc 0.9903, validation acc 0.9644, parameters 610
+     16 hidden units -> train acc 0.9979, validation acc 0.9777, parameters 1210
+     32 hidden units -> train acc 0.9992, validation acc 0.9777, parameters 2410
+     64 hidden units -> train acc 0.9990, validation acc 0.9777, parameters 4810
+    128 hidden units -> train acc 0.9982, validation acc 0.9807, parameters 9610
+Chosen hidden size: 128
+
+Test-set results
+  Accuracy        : 0.9778  (25 mistakes out of 1124)
+  Macro precision : 0.9779
+  Macro recall    : 0.9777
+  Macro F1        : 0.9778
+  Per-digit F1    : 0:0.995  1:0.974  2:0.986  3:0.983  4:0.978  5:0.969  6:0.991  7:0.987  8:0.960  9:0.955
+  Most common confusions: 5 read as 9 (3x), 9 read as 8 (2x), 9 read as 5 (2x), 8 read as 4 (2x)

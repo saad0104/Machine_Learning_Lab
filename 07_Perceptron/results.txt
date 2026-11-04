@@ -1,0 +1,20 @@
+Banknote data: 1372 notes, 4 features, forged = 610 (44.5%)
+Train/test split: 1098 / 274
+
+Training: 100 epochs, errors in first epochs [10, 36, 37, 34, 13, 14], minimum 7 errors (epoch 39)
+Converged (zero training errors)? no
+Final weights W = [-19.624, -21.471, -20.844, -0.491], bias b = -9.0
+
+Training accuracy: 0.9936
+Test-set results
+  acc         : 0.9854
+  precision   : 0.9836
+  recall      : 0.9836
+  specificity : 0.9868
+  f1          : 0.9836
+  confusion matrix [[TN FP] [FN TP]] = [[150, 2], [2, 120]]
+
+5-fold CV accuracy: 0.9876 +/- 0.0037  (folds: [0.9818, 0.9891, 0.9927, 0.9854, 0.9891])
+
+XOR check: after 100 epochs the perceptron still makes 2 errors (best ever: 1)
+Two-feature perceptron (variance, skewness): training errors per epoch [154, 147, 180, 151, 135, 300, 135, 198, 154, 187]...
