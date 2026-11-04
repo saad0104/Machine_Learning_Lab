@@ -1,4 +1,4 @@
-CSE 615 ML Lab - custom working copy
+CSE 615 ML Lab
 ====================================
 
 Environment setup (Linux/macOS):
