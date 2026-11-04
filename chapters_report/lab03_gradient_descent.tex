@@ -1,0 +1,22 @@
+\chapter{Gradient Descent}
+\labinfo{03\_Gradient\_Descent}{gradient\_descent.py}{UCI Concrete Strength: 1,030 mixes, 8 inputs}{Regression}{Stochastic GD test RMSE 6.656 MPa; $R^2=0.835$}
+
+\section{Method}
+Batch, mini-batch, and stochastic gradient descent were applied to a linear
+strength model. Inputs were standardized from the training set; log age was
+used to represent the age feature. The normal-equation solution provides a
+reference optimum, and a learning-rate sweep demonstrates convergence behavior.
+
+\section{Results}
+Stochastic GD (learning rate 0.001) reached training loss 26.128 and test RMSE
+6.656 MPa, close to the exact solution's 6.658 MPa. Batch GD at 0.1 was less
+converged after 200 epochs (RMSE 6.839). A learning rate above the stability
+limit diverged, illustrating the importance of step-size selection.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.82\linewidth]{\figpath{03_Gradient_Descent}{gd_variants_loss.pdf}}
+\caption{Training loss for batch, mini-batch, and stochastic updates.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete gradient descent implementation},label={lst:lab03}]{03_Gradient_Descent/gradient_descent.py}

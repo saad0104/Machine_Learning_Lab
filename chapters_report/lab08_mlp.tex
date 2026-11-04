@@ -1,0 +1,21 @@
+\chapter{Multi-Layer Perceptron}
+\labinfo{08\_MLP}{mlp.py}{UCI Optical Digits: 5,620 images represented by 64 pixel values}{10-class classification}{Test accuracy 97.8\%; macro F1 0.978}
+
+\section{Method}
+A one-hidden-layer network was trained from scratch with backpropagation,
+sigmoid hidden units, and a softmax output. Pixel values were scaled to $[0,1]$.
+The hidden-layer size was selected on a validation subset; the separate test
+split was used once for final scoring.
+
+\section{Results}
+The validation-selected network had 128 hidden units. It reached 97.8\% test
+accuracy and macro F1 0.978, with 25 errors among 1,124 test images. The most
+frequent confusion was digit 5 classified as 9 (three cases).
+
+\begin{figure}[H]\centering
+\includegraphics[width=.82\linewidth]{\figpath{08_MLP}{learning_curves.pdf}}
+\caption{Training and validation loss and accuracy over epochs.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete MLP implementation},label={lst:lab08}]{08_MLP/mlp.py}

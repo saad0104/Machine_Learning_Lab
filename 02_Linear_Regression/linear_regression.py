@@ -172,7 +172,7 @@ def main():
     ax.set_xlabel("Alcohol (% by volume)")
     ax.set_ylabel("Quality score")
     ax.legend(frameon=False, loc="upper left")
-    fig.savefig(os.path.join(FIG, "price_vs_sqft.pdf"))
+    fig.savefig(os.path.join(FIG, "quality_vs_alcohol.pdf"))
     plt.close(fig)
 
     # --- figure 2: the overfitting curve

@@ -1,0 +1,54 @@
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\markboth{Introduction}{}
+
+This report presents thirteen machine-learning experiments implemented in Python.
+The algorithms are coded directly with NumPy; Pandas is used to prepare tabular
+data and Matplotlib to create figures. Each experiment uses a public dataset,
+reports its held-out test performance, and saves detailed output beside its
+script. Each lab chapter ends with the complete Python source listing. The
+scripts and prepared CSV files are in the project directory.
+
+\section*{Experiments at a glance}
+\begin{table}[H]
+\centering\small
+\caption{Algorithms, datasets, and prediction tasks.}
+\begin{tabularx}{\linewidth}{@{}r l X l@{}}
+\toprule
+\textbf{Lab} & \textbf{Algorithm} & \textbf{Dataset} & \textbf{Task}\\
+\midrule
+1 & k-NN & Red Wine Quality (1,599; 11 features) & 3-class\\
+2 & Linear and polynomial regression & Red Wine Quality (1,599) & Regression\\
+3 & Gradient descent & Concrete Strength (1,030; 8 inputs) & Regression\\
+4 & MLE and MAP & Diabetes Progression (442; 10 inputs) & Regression\\
+5 & Multinomial Naive Bayes & SMS Spam (5,574 messages) & Text classification\\
+6 & Logistic regression & Breast Cancer Diagnostic (569; 30 inputs) & Binary classification\\
+7 & Perceptron & Banknote Authentication (1,372; 4 inputs) & Binary classification\\
+8 & Multi-layer perceptron & Optical Digits (5,620; 64 pixels) & 10-class\\
+9 & RBF network & Seeds (210; 7 inputs) & 3-class\\
+10 & Support vector machine & Sonar (208; 60 inputs) & Binary classification\\
+11 & Support vector regression & Auto MPG (392; 8 inputs) & Regression\\
+12 & ID3 decision tree & Car Evaluation (1,728; 6 attributes) & 4-class\\
+13 & Genetic algorithm & Ionosphere (351; 34 inputs) & Feature selection\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For parameter selection, the scripts use cross-validation on training data or a
+validation split; test data is reserved for final evaluation. Feature scaling is
+fit using training data where applicable. Classification is summarized with
+accuracy and class-sensitive metrics; regression uses MAE, RMSE, and $R^2$.
+
+\section*{Running the experiments}
+Create the environment and prepare the datasets from the project root:
+\begin{lstlisting}[language=bash,numbers=none,frame=none]
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python data/prepare_datasets.py
+.venv/bin/python 01_KNN/knn.py
+\end{lstlisting}
+Each script writes \code{results.txt} and PDF figures into its own lab folder.
+The report uses the results produced by these scripts; no machine-learning
+library is used to fit the models.
+
+\clearpage

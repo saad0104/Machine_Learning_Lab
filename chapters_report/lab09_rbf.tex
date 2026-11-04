@@ -1,0 +1,21 @@
+\chapter{Radial Basis Function Network}
+\labinfo{09\_RBF\_Network}{rbf\_network.py}{UCI Seeds: 210 wheat kernels, 7 geometric features, 3 varieties}{Classification}{Test accuracy 96.8\%; macro F1 0.968}
+
+\section{Method}
+The RBF network uses k-means to place hidden centres, a shared Gaussian width,
+and least squares to fit the output layer. Five-fold CV compared centre counts
+and width scales after training-fold standardization.
+
+\section{Results}
+The best setting was 8 centres with width scale 4.0 (CV accuracy 95.3\%). The
+final model achieved 96.8\% test accuracy and macro F1 0.968; only two of 63
+kernels were misclassified. At the selected width, random centres matched
+k-means on this test split, though k-means did better at width scale 1.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.78\linewidth]{\figpath{09_RBF_Network}{cv_vs_centres.pdf}}
+\caption{Cross-validation accuracy for centre counts and width scales.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete RBF network implementation},label={lst:lab09}]{09_RBF_Network/rbf_network.py}

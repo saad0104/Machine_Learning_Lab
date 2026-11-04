@@ -1,0 +1,48 @@
+\chapter*{Summary}
+\addcontentsline{toc}{chapter}{Summary}
+\markboth{Summary}{}
+
+The experiments show how model choice, representation, and parameter tuning
+affect performance. Table~\ref{tab:summary} gives the held-out results; values
+belong to different tasks and should not be compared directly.
+
+\begin{table}[H]
+\centering\small
+\caption{Principal test-set results from the thirteen scripts.}
+\label{tab:summary}
+\begin{tabularx}{\linewidth}{@{}r l X@{}}
+\toprule
+\textbf{Lab} & \textbf{Algorithm} & \textbf{Main result}\\
+\midrule
+1 & k-NN & Wine bands: accuracy 68.1\%, macro F1 0.660\\
+2 & Polynomial regression & Wine quality: degree 2, RMSE 0.632, $R^2=0.325$\\
+3 & Gradient descent & Concrete: SGD RMSE 6.656 MPa, $R^2=0.835$\\
+4 & MLE / MAP & Diabetes: MAP RMSE 59.61; MLE RMSE 63.25\\
+5 & Naive Bayes & SMS spam: accuracy 99.0\%, F1 0.963\\
+6 & Logistic regression & Breast cancer: accuracy 97.4\%, AUC 0.997\\
+7 & Perceptron & Banknotes: accuracy 98.5\%, F1 0.984\\
+8 & MLP & Optical digits: accuracy 97.8\%, macro F1 0.978\\
+9 & RBF network & Seeds: accuracy 96.8\%, macro F1 0.968\\
+10 & RBF SVM & Sonar: accuracy 95.1\%, AUC 0.969\\
+11 & RBF SVR & Auto MPG: RMSE 2.672 mpg, $R^2=0.887$\\
+12 & ID3 tree & Car evaluation: accuracy 92.3\%, weighted F1 0.925\\
+13 & Genetic algorithm & Ionosphere: 9 features; 5-NN accuracy 86.8\% to 94.3\%\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Three practical patterns stood out. First, scaling matters for distance-based
+methods, and regularization can improve generalization when polynomial models
+are flexible. Second, cross-validation helps select parameters, while the
+held-out test set gives a separate final estimate. Finally, a strong aggregate
+score can hide difficult minority classes, so per-class metrics and confusion
+matrices are useful alongside accuracy.
+
+\section*{References}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.2em,itemsep=2pt,font=\small]
+\item D. Dua and C. Graff, \emph{UCI Machine Learning Repository}, University of California, Irvine. Sources for the datasets used in this report.
+\item P. Cortez, A. Cerdeira, F. Almeida, T. Matos, and J. Reis, ``Modeling wine preferences by data mining from physicochemical properties,'' \emph{Decision Support Systems}, 47(4), 2009.
+\item B. Efron, T. Hastie, I. Johnstone, and R. Tibshirani, ``Least angle regression,'' \emph{Annals of Statistics}, 32(2), 2004. Diabetes dataset source.
+\item C. Cortes and V. Vapnik, ``Support-vector networks,'' \emph{Machine Learning}, 20, 1995; J. R. Quinlan, ``Induction of decision trees,'' \emph{Machine Learning}, 1(1), 1986.
+\item A. J. Smola and B. Schölkopf, ``A tutorial on support vector regression,'' \emph{Statistics and Computing}, 14, 2004.
+\end{enumerate}

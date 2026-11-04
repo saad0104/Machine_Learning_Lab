@@ -1,0 +1,22 @@
+\chapter[Maximum Likelihood and Maximum A Posteriori Estimation]{Maximum Likelihood and\\Maximum A Posteriori Estimation}
+\labinfo{04\_MLE\_MAP}{mle\_map.py}{Diabetes Progression: 442 patients, 10 baseline measurements}{Regression}{MAP test RMSE 59.61; MLE test RMSE 63.25}
+
+\section{Method}
+Ordinary least squares is the maximum-likelihood estimate under Gaussian noise.
+The MAP model adds a zero-centred Gaussian prior, equivalent to an $L_2$
+penalty. Both models use degree-2 features; the MAP penalty was selected by
+five-fold cross-validation.
+
+\section{Results}
+Cross-validation selected $\lambda=7.20$. On 132 held-out patients, MAP achieved
+RMSE 59.61 and $R^2=0.385$, compared with MLE's RMSE 63.25 and $R^2=0.308$.
+Regularization reduced the weight norm from 3,209.7 to 64.3, limiting the
+overfitting seen in the unregularized polynomial model.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.82\linewidth]{\figpath{04_MLE_MAP}{rmse_vs_lambda.pdf}}
+\caption{Training, validation, and test error as prior strength changes.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete MLE and MAP implementation},label={lst:lab04}]{04_MLE_MAP/mle_map.py}

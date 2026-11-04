@@ -1,0 +1,22 @@
+\chapter{Decision Tree (ID3)}
+\labinfo{12\_Decision\_Tree\_ID3}{id3.py}{UCI Car Evaluation: 1,728 cars, 6 categorical attributes}{4-class classification}{Test accuracy 92.3\%; weighted F1 0.925}
+
+\section{Method}
+ID3 selects each split by information gain, using entropy to measure class
+impurity. The experiment reports the root gains, evaluates a full tree, and
+compares test accuracy under several maximum-depth limits.
+
+\section{Results}
+Safety had the greatest root information gain (0.278 bits), followed by persons
+(0.224 bits). The full tree had 85 decision nodes and depth 6; it achieved
+92.3\% test accuracy and weighted F1 0.925. Its perfect training accuracy
+versus lower test accuracy indicates some overfitting; a depth-5 tree reached
+the same test accuracy with fewer leaves.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.76\linewidth]{\figpath{12_Decision_Tree_ID3}{depth_vs_accuracy.pdf}}
+\caption{Training and test accuracy as the maximum tree depth changes.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete ID3 implementation},label={lst:lab12}]{12_Decision_Tree_ID3/id3.py}

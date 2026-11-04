@@ -1,0 +1,22 @@
+\chapter{k-Nearest Neighbours}
+\labinfo{01\_KNN}{knn.py}{UCI Red Wine Quality: 1,599 samples, 11 chemical features; quality grouped into three bands}{Classification}{Test accuracy 68.1\%; macro F1 0.660}
+
+\section{Method}
+The response was grouped as low (quality at most 5), medium (6), and high (at
+least 7). After a stratified 70/30 split, five-fold cross-validation selected
+$k$ and the distance metric. Standardized Manhattan distance with $k=1$ had the
+best mean CV accuracy (65.3\%).
+
+\section{Results}
+On the held-out 479 wines, accuracy was 68.1\% and macro F1 was 0.660. Scaling
+improved accuracy over the unscaled comparison (62.0\%). The per-class F1 scores
+were 0.740, 0.642, and 0.597, respectively; the high-quality category remained
+the hardest class to identify.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.78\linewidth]{\figpath{01_KNN}{cv_accuracy_vs_k.pdf}}
+\caption{Cross-validation accuracy for candidate neighbourhood sizes.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete k-NN implementation},label={lst:lab01}]{01_KNN/knn.py}

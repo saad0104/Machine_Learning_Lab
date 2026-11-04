@@ -1,0 +1,22 @@
+\chapter{Perceptron}
+\labinfo{07\_Perceptron}{perceptron.py}{UCI Banknote Authentication: 1,372 notes, 4 wavelet features}{Binary classification}{Test accuracy 98.5\%; F1 0.984}
+
+\section{Method}
+The single-layer perceptron uses the hard-limit activation and updates its
+weights after each misclassified example. Features were standardized using the
+training partition. A separate XOR demonstration illustrates the limits of a
+linear decision boundary.
+
+\section{Results}
+The model achieved 98.5\% test accuracy and F1 0.984; the confusion matrix had
+two false positives and two false negatives. It did not converge to zero
+training errors within 100 epochs. As expected, a single perceptron also could
+not correctly classify XOR, a non-linearly separable problem.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.72\linewidth]{\figpath{07_Perceptron}{errors_per_epoch.pdf}}
+\caption{Training classification errors across perceptron epochs.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete perceptron implementation},label={lst:lab07}]{07_Perceptron/perceptron.py}

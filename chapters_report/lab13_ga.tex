@@ -1,0 +1,23 @@
+\chapter{Genetic Algorithm}
+\labinfo{13\_Genetic\_Algorithm}{genetic\_algorithm.py}{UCI Ionosphere: 351 radar returns, 34 input features}{k-NN feature selection}{9 selected features; test accuracy 94.3\%}
+
+\section{Method}
+Each chromosome represents a subset of input features. Fitness is five-fold
+cross-validated 5-NN accuracy minus a small penalty for using more features.
+The genetic search compares tournament and roulette selection, then evaluates
+the selected subset on held-out data.
+
+\section{Results}
+Tournament selection chose 9 features and reached CV accuracy 91.0\%. On the
+test set, 5-NN accuracy rose from 86.8\% with all 34 features to 94.3\% with
+the selected subset; macro F1 increased from 0.846 to 0.938. Repeated seeds
+selected different subsets, so the exact feature set depends on the search
+initialization.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.82\linewidth]{\figpath{13_Genetic_Algorithm}{ga_convergence.pdf}}
+\caption{Best and mean population fitness through genetic-algorithm generations.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete genetic algorithm implementation},label={lst:lab13}]{13_Genetic_Algorithm/genetic_algorithm.py}

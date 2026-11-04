@@ -1,0 +1,21 @@
+\chapter{Support Vector Regression}
+\labinfo{11\_SVR}{svr.py}{UCI Auto MPG: 392 cars and 8 numeric or encoded inputs}{Regression}{RBF SVR test RMSE 2.672 mpg; $R^2=0.887$}
+
+\section{Method}
+An epsilon-SVR was solved with an SMO-style dual optimizer. Five-fold CV
+selected $C$, $\gamma$, and the tube width $\epsilon$. A linear SVR and
+least-squares regression served as baselines.
+
+\section{Results}
+The best RBF model used $C=100$, $\gamma=0.1$, and $\epsilon=0.5$. It achieved
+test MAE 1.935 mpg, RMSE 2.672 mpg, and $R^2=0.887$, outperforming the linear
+baselines. Increasing $\epsilon$ reduced the number of support vectors, but
+large tube widths increased prediction error.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.72\linewidth]{\figpath{11_SVR}{pred_vs_actual.pdf}}
+\caption{Predicted versus measured fuel economy on the test set.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete SVR implementation},label={lst:lab11}]{11_SVR/svr.py}

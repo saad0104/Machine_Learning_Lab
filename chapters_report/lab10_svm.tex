@@ -1,0 +1,21 @@
+\chapter{Support Vector Machine}
+\labinfo{10\_SVM}{svm.py}{UCI Sonar: 208 returns described by 60 frequency-band measurements}{Binary classification}{RBF test accuracy 95.1\%; AUC 0.969}
+
+\section{Method}
+The soft-margin SVM was implemented in the dual using sequential minimal
+optimization (SMO). A linear kernel and an RBF kernel were compared; $C$ and
+$\gamma$ were selected by five-fold CV on standardized training data.
+
+\section{Results}
+The best RBF parameters were $C=100$ and $\gamma=0.01$ (CV accuracy 85.0\%). On
+the 41-case test set, the model reached 95.1\% accuracy and AUC 0.969, correctly
+identifying all 22 mines and misclassifying two rocks. The linear SVM scored
+75.6\% accuracy on the same split.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.82\linewidth]{\figpath{10_SVM}{roc_and_confusion.pdf}}
+\caption{Test ROC curves and the RBF model's confusion matrix.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete SVM implementation},label={lst:lab10}]{10_SVM/svm.py}

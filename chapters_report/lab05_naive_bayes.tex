@@ -1,0 +1,22 @@
+\chapter{Naive Bayes Classifier}
+\labinfo{05\_Naive\_Bayes}{naive\_bayes.py}{UCI SMS Spam Collection: 5,574 messages, 747 labelled spam}{Text classification}{CV-selected model: test F1 0.963; AUC 0.991}
+
+\section{Method}
+Messages were tokenized into words and classified with a from-scratch
+multinomial Naive Bayes model. Five-fold CV selected the Laplace smoothing
+parameter $\alpha$ using spam-class F1; a stratified test split was used for the
+final comparison.
+
+\section{Results}
+The selected $\alpha=0.25$ model reached 99.0\% test accuracy, 96.0\% spam
+recall, 96.3\% spam F1, and AUC 0.991. Without smoothing, unseen words caused
+zero-probability scores for at least one class in 1,027 of 1,114 test messages.
+This demonstrates why smoothing is essential for sparse text data.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.76\linewidth]{\figpath{05_Naive_Bayes}{roc_and_alpha.pdf}}
+\caption{ROC performance and the effect of smoothing on validation F1.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete Naive Bayes implementation},label={lst:lab05}]{05_Naive_Bayes/naive_bayes.py}

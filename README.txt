@@ -1,7 +1,7 @@
-CSE 615 ML Lab
+CSE 616 ML Lab
 ====================================
 
-Environment setup (Linux/macOS):
+Environment setup (Linux):
     python3 -m venv .venv
     .venv/bin/python -m pip install -r requirements.txt
 
@@ -19,6 +19,13 @@ data/prepare_datasets.py for source URLs, transformations, and train/test split.
 Dependencies used by the lab scripts: NumPy, Pandas, Matplotlib. ucimlrepo is
 used by the preparation script to download several UCI datasets.
 
-The LaTeX report files were copied from the starter material. They have not yet
-been updated to match all datasets and newly generated results; do not treat the
-existing PDF or chapter results as results from these revised scripts.
+The concise report source is in chapters_report/ and is included by
+main_share.tex. Compile twice with XeLaTeX from this directory:
+    xelatex main_share.tex
+    xelatex main_share.tex
+The existing main_share.pdf is the starter PDF and has not been regenerated.
+
+For the report's full source-code listings, Overleaf must also receive all 13
+lab folders containing the .py files, plus chapters_report/, fonts/, the figure
+PDFs under each lab's figures/ directory, and main_share.tex. The data/ folder
+and virtual environment are not needed just to compile the document.

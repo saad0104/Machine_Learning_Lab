@@ -1,0 +1,22 @@
+\chapter{Logistic Regression}
+\labinfo{06\_Logistic\_Regression}{logistic\_regression.py}{Breast Cancer Wisconsin Diagnostic: 569 tumours, 30 measurements}{Binary classification}{Test accuracy 97.4\%; AUC 0.997}
+
+\section{Method}
+A logistic model was trained with batch gradient descent to distinguish
+malignant from benign tumours. Inputs were standardized using training
+statistics. Five-fold CV compared four $L_2$ strengths; test performance was
+also checked at two probability thresholds.
+
+\section{Results}
+The selected penalty was zero. At threshold 0.5, the model correctly classified
+110 of 113 test cases (accuracy 97.4\%, F1 0.965, AUC 0.997). It missed one
+malignant case and marked two benign cases as malignant. Lowering the threshold
+to 0.3 maintained recall but increased false positives.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.78\linewidth]{\figpath{06_Logistic_Regression}{loss_and_roc.pdf}}
+\caption{Training loss and test-set ROC curve.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete logistic regression implementation},label={lst:lab06}]{06_Logistic_Regression/logistic_regression.py}

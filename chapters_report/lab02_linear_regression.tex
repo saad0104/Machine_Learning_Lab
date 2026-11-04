@@ -1,0 +1,22 @@
+\chapter{Linear and Polynomial Regression}
+\labinfo{02\_Linear\_Regression}{linear\_regression.py}{UCI Red Wine Quality: 1,599 wines; alcohol, volatile acidity, sulphates, and density}{Regression}{Degree-2 test RMSE 0.632; $R^2=0.325$}
+
+\section{Method}
+Wine quality (scores 3--8) was predicted from four selected measurements. The
+script compares simple and multiple least-squares regression with polynomial
+models of degrees 1--6. Degree was selected by five-fold CV on the training
+split; input standardization is learned from training data only.
+
+\section{Results}
+Degree 2 gave the lowest CV RMSE (0.661). Its held-out RMSE was 0.632 and
+$R^2=0.325$, slightly better than the multiple linear model (RMSE 0.642,
+$R^2=0.304$). Higher degrees overfit: degree 6 had CV RMSE 20.941. The modest
+$R^2$ indicates that these four measurements explain only part of the rating.
+
+\begin{figure}[H]\centering
+\includegraphics[width=.82\linewidth]{\figpath{02_Linear_Regression}{degree_vs_rmse.pdf}}
+\caption{Training, cross-validation, and test errors by polynomial degree.}
+\end{figure}
+
+\section{Python source}
+\lstinputlisting[caption={Complete regression implementation},label={lst:lab02}]{02_Linear_Regression/linear_regression.py}
