@@ -111,7 +111,7 @@ def main():
     te, tr = idx[:n_test], idx[n_test:]
     log(f"Train/test split: {len(tr)} / {len(te)}\n")
 
-    # 1) simple linear regression: price ~ square feet
+    # 1) simple linear regression: quality ~ alcohol
     w_simple = fit_simple(X[tr, 0], y[tr])
     pred_simple = lambda Xp: w_simple[0] + w_simple[1] * Xp[:, 0]
 
@@ -198,7 +198,7 @@ def main():
     axes[0].set_title(f"Degree {best_d}, test R$^2$ = {regression_scores(y[te], pte)[2]:.3f}", fontsize=8.5)
     axes[1].scatter(pte, y[te] - pte, s=8, color=BLUE, alpha=0.7)
     axes[1].axhline(0, color=MUTED, lw=1)
-    axes[1].set_xlabel("Predicted price (lakh BDT)")
+    axes[1].set_xlabel("Predicted quality")
     axes[1].set_ylabel("Residual (quality points)")
     axes[1].set_title("Residuals on the test set", fontsize=8.5)
     fig.savefig(os.path.join(FIG, "predicted_and_residuals.pdf"))

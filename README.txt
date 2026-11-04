@@ -27,5 +27,6 @@ The existing main_share.pdf is the starter PDF and has not been regenerated.
 
 For the report's full source-code listings, Overleaf must also receive all 13
 lab folders containing the .py files, plus chapters_report/, fonts/, the figure
-PDFs under each lab's figures/ directory, and main_share.tex. The data/ folder
-and virtual environment are not needed just to compile the document.
+PDFs under each lab's figures/ directory, cover.tex, chapters_report/images/,
+and main_share.tex. The data/ folder and virtual environment are not needed just
+to compile the document.
